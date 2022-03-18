@@ -1,0 +1,192 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.box1{
+    height: 100vh;
+    width: 100%;
+    background-image: url(/bgtest/student1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.box2{
+    height: 100vh;
+    width: 100%;
+    background-image: url(/bgtest/student3.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.box3{
+    height: 100vh;
+    width: 100%;
+    background-image: url(/bgtest/student4.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.box4{
+    height: 100vh;
+    width: 100%;
+    background-image: url(/bgtest/student5.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.tekst{
+    position: absolute;
+    top: 120px;
+    width: 350px;
+    height: 200px;
+    left: 60px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 6px;
+    opacity: 0.6;
+}
+
+.Quest{
+    position: absolute;
+    height: 600px;
+    width: 1740px;
+    top: 1200px;
+    left: 60px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 6px;
+    opacity: 0.6;
+}
+
+.howItWorks{
+    position: absolute;
+    top: 2000px;
+    width: 500px;
+    height: 350px;
+    left: 60px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 6px;
+    opacity: 0.6;
+}
+
+.purpose{
+    position: absolute;
+    top: 2500px;
+    width: 500px;
+    height: 350px;
+    right: 60px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 6px;
+    opacity: 0.6;
+}
+
+.aboutUs{
+    position: absolute;
+    top: 3000px;
+    width: 500px;
+    height: 350px;
+    left: 60px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 6px;
+    opacity: 0.6;
+}
+
+nav{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    position: fixed;
+    z-index:1;
+}
+
+nav p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #222;
+    font-size: 24px;
+    line-height: 6px;
+    float: left;
+    padding: 0px 20px;
+}
+
+nav ul{
+    float: right;
+    
+}
+
+nav ul li{
+    float: left;
+    list-style: none;
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  
+}
+
+nav ul li a{
+    display: block;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #222;
+    font-size: 14px;
+    padding: 6px 14px;
+    text-decoration: none;
+    
+}
+
+
+
+
+nav ul li ul{
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border-radius: 0px 0px 4px 4px;
+
+}
+
+nav ul li:hover ul{
+    display: block;
+    
+    
+
+}
+
+
+
+
+nav ul li ul li {
+    width: 180px;
+    border-radius: 4px;
+
+    
+}
+
+nav ul li ul li a:hover{
+    background-color: #f3f3f3;
+    
+    
+}
+
+footer{
+    text-align: center;
+    padding: 4px;
+    background-color: white;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
