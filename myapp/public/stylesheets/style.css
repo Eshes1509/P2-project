@@ -1,8 +1,11 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body::before {
+    display: block;
+    content: "";
+    height: 60px;
 }
 
-a {
-  color: #00B7FF;
+@media (min-width: 768px) {
+    .news-input {
+        width: 50%;
+    }
 }
