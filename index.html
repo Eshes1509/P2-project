@@ -187,48 +187,353 @@
         <!-- Questionnaire -->
         <section
             id="questionnaire"
-            class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
+            class="bg-dark text-dark p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
         >
-        <h1 class="text-center mb-4">Questionnaire</h1>
+        <h1 class="text-center mb-4 text-light">Questionnaire</h1>
         <form data-multi-step class="multi-step-form">
-            <div class="card-step" data-step>
-                <h3 class="step-title">This is step 1</h3>
+            <div class="mb-5 card-step" data-step>
+                <h3 class="step-title">Personal Information</h3>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" />
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control name="firstName" id="firstName" placeholder="Jens"/>
+                </div>
+                <div class=" form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control name="lastName" id="lastName" placeholder="Jensen"/>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" />
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com"/>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="form-group">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" name="age" id="age"/>
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="semester" class="form-label">Semester</label>
+                    <input type="number" class="form-control" name="semester" id="semester" min="1" max="10" placeholder="Semester currently studying"/>
                 </div>
                 <button type="button" class="btn btn-primary" data-next>Next</button>
             </div>
-            <div class="card-step" data-step>
-                <h3 class="step-title">This is step 2</h3>
+            <div class="mb-5 card-step" data-step>
+                <h3 class="step-title">About yourself</h3>
                 <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="email" name="address" id="address" />
+                    <label for="smoker">Are you a smoker?</label>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="btnradio1" id="smokerYes" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="smokerYes">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio1" id="smokerNo" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="smokerNo">No</label>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" name="city" id="city" />
+                    <label for="planVisitors">How often do you plan on having visitors over?</label>
+                    <select class="form-select" name="planVisitors" id="planVisitors">
+                        <option selected>Select how often</option>
+                        <option value="1">Every day</option>
+                        <option value="2">A few times a week</option>
+                        <option value="3">One a week</option>
+                        <option value="4">Once a month</option>
+                        <option value="5">Never</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="zipcode">Zip Code</label>
-                    <input type="text" name="zipcode" id="zipcode" />
+                    <label for="religious">Are you religious?</label>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="btnradio2" id="religiousYes" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="religiousYes">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio2" id="religiousNo" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="religiousNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="preferStudy">How do you prefer to study?</label>
+                    <select class="form-select" name="preferStudy" id="preferStudy">
+                        <option selected>Select how you prefer to study</option>
+                        <option value="1">With people</option>
+                        <option value="2">In private</option>
+                        <option value="3">With noise</option>
+                        <option value="4">With little distraction</option>
+                        <option value="5">Not sure</option>
+                    </select>
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="bedtime">When do you typically go to bed?</label>
+                    <select class="form-select" name="bedtime" id="bedtime">
+                        <option selected>Select when you typically go to bed</option>
+                        <option value="1">Before 9. PM</option>
+                        <option value="2">Before 12. AM</option>
+                        <option value="3">After 12. AM</option>
+                    </select>
                 </div>
                 <button type="button" class="btn btn-secondary" data-previous>Previous</button>
                 <button type="button" class="btn btn-primary" data-next>Next</button>
             </div>
-            <div class="card-step" data-step>
-                <h3 class="step-title">This is step 3</h3>
+            <div class="mb-5 card-step" data-step>
+                <h3 class="step-title">What are you searching for?</h3>
+                <div class="mb-3 form-group">
+                    <label class="mb-2" for="bedtime">What type of accomodation are you searching for?</label>
+                    <div class="btn-group" role="group" name="bedtime" id="bedtime">
+                        <input type="checkbox" class="btn-check" id="accomodationWithRoommate" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="accomodationWithRoommate">Accomodation with a roommate</label>
+                      
+                        <input type="checkbox" class="btn-check" id="accomodationWithSharedKitchen" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="accomodationWithSharedKitchen">Accomodation with shared kitchen</label>
+                        
+                        <input type="checkbox" class="btn-check" id="accomodationWithOwnKitchen" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="accomodationWithOwnKitchen">Accomodation with you own kitchen</label>
+                      </div>
+                    <div id="typeHelp" class="form-text">You can select multiple.</div>
+                </div>
+                <button type="button" class="btn btn-secondary" data-previous>Previous</button>
+                <button type="button" class="btn btn-primary" data-next>Next</button>
+            </div>
+            <div class="mb-5 card-step" data-step>
+                <h3 class="step-title">Roommate</h3>
                 <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="email" name="firstName" id="firstName" />
+                    <label for="roommateGender">What is your preferred gender to live with?</label>
+                    <select class="form-select" name="roommateGender" id="roommateGender">
+                        <option selected>Select preferred gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Does not matter</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" name="lastName" id="lastName" />
+                    <label for="religious">Do you prefer your roommate to be international?</label>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="btnradio3" id="preferInternationalYes" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="preferInternationalYes">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio3" id="preferInternationalNo" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="preferInternationalNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="preferredAgeRange">What is your preferred age range to live with?</label>
+                    <select class="form-select" name="preferredAgeRange" id="preferredAgeRange">
+                        <option selected>Select age range</option>
+                        <option value="1">18-21</option>
+                        <option value="2">22-25</option>
+                        <option value="3">26-30</option>
+                        <option value="4">Does not matter</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="preferStudy">Do you prefer your roommate to speak the same language as you?</label>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="btnradio4" id="roommateSameLangugageYes" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="roommateSameLangugageYes">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio4" id="roommateSameLangugageNo" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="roommateSameLangugageNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="preferStudy">If yes, please select a language</label>
+                    <select class="form-select" id="roommateLanguage" name="roommateLanguage">
+                        <option>Select Language</option>
+                        <option value="af">Afrikaans</option>
+                        <option value="sq">Albanian - shqip</option>
+                        <option value="am">Amharic - አማርኛ</option>
+                        <option value="ar">Arabic - العربية</option>
+                        <option value="an">Aragonese - aragonés</option>
+                        <option value="hy">Armenian - հայերեն</option>
+                        <option value="ast">Asturian - asturianu</option>
+                        <option value="az">Azerbaijani - azərbaycan dili</option>
+                        <option value="eu">Basque - euskara</option>
+                        <option value="be">Belarusian - беларуская</option>
+                        <option value="bn">Bengali - বাংলা</option>
+                        <option value="bs">Bosnian - bosanski</option>
+                        <option value="br">Breton - brezhoneg</option>
+                        <option value="bg">Bulgarian - български</option>
+                        <option value="ca">Catalan - català</option>
+                        <option value="ckb">Central Kurdish - کوردی (دەستنوسی عەرەبی)</option>
+                        <option value="zh">Chinese - 中文</option>
+                        <option value="zh-HK">Chinese (Hong Kong) - 中文（香港）</option>
+                        <option value="zh-CN">Chinese (Simplified) - 中文（简体）</option>
+                        <option value="zh-TW">Chinese (Traditional) - 中文（繁體）</option>
+                        <option value="co">Corsican</option>
+                        <option value="hr">Croatian - hrvatski</option>
+                        <option value="cs">Czech - čeština</option>
+                        <option value="da">Danish - dansk</option>
+                        <option value="nl">Dutch - Nederlands</option>
+                        <option value="en">English</option>
+                        <option value="en-AU">English (Australia)</option>
+                        <option value="en-CA">English (Canada)</option>
+                        <option value="en-IN">English (India)</option>
+                        <option value="en-NZ">English (New Zealand)</option>
+                        <option value="en-ZA">English (South Africa)</option>
+                        <option value="en-GB">English (United Kingdom)</option>
+                        <option value="en-US">English (United States)</option>
+                        <option value="eo">Esperanto - esperanto</option>
+                        <option value="et">Estonian - eesti</option>
+                        <option value="fo">Faroese - føroyskt</option>
+                        <option value="fil">Filipino</option>
+                        <option value="fi">Finnish - suomi</option>
+                        <option value="fr">French - français</option>
+                        <option value="fr-CA">French (Canada) - français (Canada)</option>
+                        <option value="fr-FR">French (France) - français (France)</option>
+                        <option value="fr-CH">French (Switzerland) - français (Suisse)</option>
+                        <option value="gl">Galician - galego</option>
+                        <option value="ka">Georgian - ქართული</option>
+                        <option value="de">German - Deutsch</option>
+                        <option value="de-AT">German (Austria) - Deutsch (Österreich)</option>
+                        <option value="de-DE">German (Germany) - Deutsch (Deutschland)</option>
+                        <option value="de-LI">German (Liechtenstein) - Deutsch (Liechtenstein)</option>
+                        <option value="de-CH">German (Switzerland) - Deutsch (Schweiz)</option>
+                        <option value="el">Greek - Ελληνικά</option>
+                        <option value="gn">Guarani</option>
+                        <option value="gu">Gujarati - ગુજરાતી</option>
+                        <option value="ha">Hausa</option>
+                        <option value="haw">Hawaiian - ʻŌlelo Hawaiʻi</option>
+                        <option value="he">Hebrew - עברית</option>
+                        <option value="hi">Hindi - हिन्दी</option>
+                        <option value="hu">Hungarian - magyar</option>
+                        <option value="is">Icelandic - íslenska</option>
+                        <option value="id">Indonesian - Indonesia</option>
+                        <option value="ia">Interlingua</option>
+                        <option value="ga">Irish - Gaeilge</option>
+                        <option value="it">Italian - italiano</option>
+                        <option value="it-IT">Italian (Italy) - italiano (Italia)</option>
+                        <option value="it-CH">Italian (Switzerland) - italiano (Svizzera)</option>
+                        <option value="ja">Japanese - 日本語</option>
+                        <option value="kn">Kannada - ಕನ್ನಡ</option>
+                        <option value="kk">Kazakh - қазақ тілі</option>
+                        <option value="km">Khmer - ខ្មែរ</option>
+                        <option value="ko">Korean - 한국어</option>
+                        <option value="ku">Kurdish - Kurdî</option>
+                        <option value="ky">Kyrgyz - кыргызча</option>
+                        <option value="lo">Lao - ລາວ</option>
+                        <option value="la">Latin</option>
+                        <option value="lv">Latvian - latviešu</option>
+                        <option value="ln">Lingala - lingála</option>
+                        <option value="lt">Lithuanian - lietuvių</option>
+                        <option value="mk">Macedonian - македонски</option>
+                        <option value="ms">Malay - Bahasa Melayu</option>
+                        <option value="ml">Malayalam - മലയാളം</option>
+                        <option value="mt">Maltese - Malti</option>
+                        <option value="mr">Marathi - मराठी</option>
+                        <option value="mn">Mongolian - монгол</option>
+                        <option value="ne">Nepali - नेपाली</option>
+                        <option value="no">Norwegian - norsk</option>
+                        <option value="nb">Norwegian Bokmål - norsk bokmål</option>
+                        <option value="nn">Norwegian Nynorsk - nynorsk</option>
+                        <option value="oc">Occitan</option>
+                        <option value="or">Oriya - ଓଡ଼ିଆ</option>
+                        <option value="om">Oromo - Oromoo</option>
+                        <option value="ps">Pashto - پښتو</option>
+                        <option value="fa">Persian - فارسی</option>
+                        <option value="pl">Polish - polski</option>
+                        <option value="pt">Portuguese - português</option>
+                        <option value="pt-BR">Portuguese (Brazil) - português (Brasil)</option>
+                        <option value="pt-PT">Portuguese (Portugal) - português (Portugal)</option>
+                        <option value="pa">Punjabi - ਪੰਜਾਬੀ</option>
+                        <option value="qu">Quechua</option>
+                        <option value="ro">Romanian - română</option>
+                        <option value="mo">Romanian (Moldova) - română (Moldova)</option>
+                        <option value="rm">Romansh - rumantsch</option>
+                        <option value="ru">Russian - русский</option>
+                        <option value="gd">Scottish Gaelic</option>
+                        <option value="sr">Serbian - српски</option>
+                        <option value="sh">Serbo-Croatian - Srpskohrvatski</option>
+                        <option value="sn">Shona - chiShona</option>
+                        <option value="sd">Sindhi</option>
+                        <option value="si">Sinhala - සිංහල</option>
+                        <option value="sk">Slovak - slovenčina</option>
+                        <option value="sl">Slovenian - slovenščina</option>
+                        <option value="so">Somali - Soomaali</option>
+                        <option value="st">Southern Sotho</option>
+                        <option value="es">Spanish - español</option>
+                        <option value="es-AR">Spanish (Argentina) - español (Argentina)</option>
+                        <option value="es-419">Spanish (Latin America) - español (Latinoamérica)</option>
+                        <option value="es-MX">Spanish (Mexico) - español (México)</option>
+                        <option value="es-ES">Spanish (Spain) - español (España)</option>
+                        <option value="es-US">Spanish (United States) - español (Estados Unidos)</option>
+                        <option value="su">Sundanese</option>
+                        <option value="sw">Swahili - Kiswahili</option>
+                        <option value="sv">Swedish - svenska</option>
+                        <option value="tg">Tajik - тоҷикӣ</option>
+                        <option value="ta">Tamil - தமிழ்</option>
+                        <option value="tt">Tatar</option>
+                        <option value="te">Telugu - తెలుగు</option>
+                        <option value="th">Thai - ไทย</option>
+                        <option value="ti">Tigrinya - ትግርኛ</option>
+                        <option value="to">Tongan - lea fakatonga</option>
+                        <option value="tr">Turkish - Türkçe</option>
+                        <option value="tk">Turkmen</option>
+                        <option value="tw">Twi</option>
+                        <option value="uk">Ukrainian - українська</option>
+                        <option value="ur">Urdu - اردو</option>
+                        <option value="ug">Uyghur</option>
+                        <option value="uz">Uzbek - o‘zbek</option>
+                        <option value="vi">Vietnamese - Tiếng Việt</option>
+                        <option value="wa">Walloon - wa</option>
+                        <option value="cy">Welsh - Cymraeg</option>
+                        <option value="fy">Western Frisian</option>
+                        <option value="xh">Xhosa</option>
+                        <option value="yi">Yiddish</option>
+                        <option value="yo">Yoruba - Èdè Yorùbá</option>
+                        <option value="zu">Zulu - isiZulu</option>
+                    </select>
+                    <div id="typeHelp" class="form-text">This cannot be guaranteed.</div>
+                </div>
+                <div class="form-group">
+                    <label for="preferStudy">Do you prefer your rommate to have the same major as you?</label>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="btnradio5" id="roommateMajorYes" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="roommateMajorYes">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio5" id="roommateMajorNo" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="roommateMajorNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="preferStudy">Do you prefer your rommate to be religious?</label>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="btnradio6" id="roommateReligiousYes" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="roommateReligiousYes">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio6" id="roommateReligiousNo" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="roommateReligiousNo">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="preferStudy">Do you prefer your rommate to smoke?</label>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="btnradio7" id="roommateSmokeYes" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="roommateSmokeYes">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio7" id="roommateSmokeNo" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="roommateSmokeNo">No</label>
+                    </div>
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="preferStudy">Do you prefer your rommate to be on the same semester as you?</label>
+                    <div class="btn-group" role="group">
+                        <input type="radio" class="btn-check" name="btnradio8" id="roommateSemesterYes" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="roommateSemesterYes">Yes</label>
+                      
+                        <input type="radio" class="btn-check" name="btnradio8" id="roommateSemesterNo" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="roommateSemesterNo">No</label>
+                    </div>
+                    <div id="typeHelp" class="form-text">This cannot be guaranteed.</div>
+                </div>
+                <button type="button" class="btn btn-secondary" data-previous>Previous</button>
+                <button type="button" class="btn btn-primary" data-next>Next</button>
+            </div>
+            <div class="mb-5 card-step" data-step>
+                <h3 class="step-title">This is step 3</h3>
+                <div class="form-group">
+                    <label for="bla4">bla</label>
+                    <input type="email" class="form-control name="firstName" id="bla4" />
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="bla5">bla</label>
+                    <input type="text" class="form-control name="lastName" id="bla5" />
                 </div>
                 <button type="button" class="btn btn-secondary" data-previous>Previous</button>
                 <button type="submit" class="btn btn-success">Submit</button>
@@ -246,11 +551,11 @@
                     <div class="accordion-item">
                       <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-one">
-                          Can we gurantee a spot at a dormitory?
+                          Can we guarantee a spot at a dormitory?
                         </button>
                       </h2>
                       <div id="question-one" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#questions">
-                        <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores assumenda soluta officiis omnis dolorum fugiat itaque. Quibusdam vero id atque cumque hic debitis quia suscipit! Eveniet porro, ullam corrupti expedita, voluptates exercitationem nostrum fugiat, perspiciatis alias incidunt provident? Possimus quidem reprehenderit qui dolorum accusamus eligendi distinctio a sunt est repellendus.</div>
+                        <div class="accordion-body">The short answer is, no. As we...</div>
                       </div>
                     </div>
                     <!-- Item 2 -->
