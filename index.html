@@ -99,12 +99,10 @@
                             elit. Sequi laboriosam expedita id doloribus et
                             officia!
                         </p>
-                        <button class="btn btn-primary btn-lg">
-                            Get started!
-                        </button>
+                        <a href="#questionnaire" class="btn btn-primary btn-lg">Get started!</a>
                     </div>
                     <img
-                        class="img-fluid w-50 d-none d-sm-block"
+                        class="img-fluid w-100 d-none d-sm-block"
                         src="/myapp/public/images/searching.svg"
                         alt=""
                     />
@@ -191,8 +189,51 @@
             id="questionnaire"
             class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
         >
-        <h1>Questionnaire</h1>
-        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quos nobis modi quo ducimus quisquam architecto facilis, accusamus necessitatibus perferendis tenetur id velit cumque quas at repellendus nostrum magni deleniti!</p>
+        <h1 class="text-center mb-4">Questionnaire</h1>
+        <form data-multi-step class="multi-step-form">
+            <div class="card-step" data-step>
+                <h3 class="step-title">This is step 1</h3>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" />
+                </div>
+                <button type="button" class="btn btn-primary" data-next>Next</button>
+            </div>
+            <div class="card-step" data-step>
+                <h3 class="step-title">This is step 2</h3>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="email" name="address" id="address" />
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" />
+                </div>
+                <div class="form-group">
+                    <label for="zipcode">Zip Code</label>
+                    <input type="text" name="zipcode" id="zipcode" />
+                </div>
+                <button type="button" class="btn btn-secondary" data-previous>Previous</button>
+                <button type="button" class="btn btn-primary" data-next>Next</button>
+            </div>
+            <div class="card-step" data-step>
+                <h3 class="step-title">This is step 3</h3>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="email" name="firstName" id="firstName" />
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" />
+                </div>
+                <button type="button" class="btn btn-secondary" data-previous>Previous</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
         </section>
 
         <!-- Question Accordion -->
@@ -412,5 +453,6 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
+        <script src="/myapp/public/javascripts/script.js"></script>
     </body>
 </html>
