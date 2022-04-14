@@ -25,6 +25,11 @@ app.get("/guide", function (request, response) {
     return response.render("pages/guide.ejs");
 });
 
+app.post("/results", function (request, response) {
+    return response.send(request.body);
+    /* response.render("pages/results.ejs"); */
+});
+
 // Localhost
 app.listen(3000, function () {
     console.log("My server is running on port 3000");
