@@ -372,37 +372,38 @@ function x15(q18y, q7y, q7x) {
     return x15;
 }
 
+let weightings = [0.1];
+let fitness = [{}];
+
 function x_array() {
-    let x_Array = new Array();
     for (let i = 0; i < antalpersonerdercurrentlyresident.length; i++) {
-        for (let j = 0; j < 1; j++) {
-            let array = new Array();
+        let array = [];
+        let sum = 0;
 
-            array[0] = x1();
-            array[1] = x2();
-            array[2] = x3();
-            array[3] = x4();
-            array[4] = x5();
-            array[5] = x6();
-            array[6] = x7();
-            array[7] = x8();
-            array[8] = x9();
-            array[9] = x10();
-            array[10] = x11();
-            array[11] = x12();
-            array[12] = x13();
-            array[13] = x14();
-            array[14] = x15(results[i].q18y);
+        array[0] = x1();
+        array[1] = x2();
+        array[2] = x3();
+        array[3] = x4();
+        array[4] = x5();
+        array[5] = x6();
+        array[6] = x7();
+        array[7] = x8();
+        array[8] = x9();
+        array[9] = x10();
+        array[10] = x11();
+        array[11] = x12();
+        array[12] = x13();
+        array[13] = x14();
+        array[14] = x15(results[i].q18y);
+
+        for (let j = 0; j < 15; j++) {
+            sum += array[j] * weightings[j];
+            let fit = {
+                fitness: sum,
+                email: results[i].email,
+            };
+            fitness.push(fit);
         }
-
-        x_Array[i[array]];
-    }
-}
-
-/* Weighting algorithm */
-function weighting() {
-    for (let i = 0; i < 16; i++) {
-        x_array[i[i]] * 0.1;
     }
 }
 /* Whatever else(Ændre til hvad javascripten herunder er til) */
