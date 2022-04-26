@@ -372,38 +372,41 @@ function x15(q18y, q7y, q7x) {
     return x15;
 }
 
-let weightings = [0.1];
+let weightings = [
+    0.1, 0.0285, 0.1, 0.1, 0.1, 0.1, 0.0285, 0.1, 0.1, 0.0285, 0.1, 0.0285,
+    0.0285, 0.0285, 0.0285,
+];
 let fitness = [{}];
 
-function x_array() {
-    for (let i = 0; i < antalpersonerdercurrentlyresident.length; i++) {
+function compatability() {
+    for (let i = 0; i < DB.length; i++) {
         let array = [];
         let sum = 0;
 
-        array[0] = x1();
-        array[1] = x2();
-        array[2] = x3();
-        array[3] = x4();
-        array[4] = x5();
-        array[5] = x6();
-        array[6] = x7();
-        array[7] = x8();
-        array[8] = x9();
-        array[9] = x10();
-        array[10] = x11();
-        array[11] = x12();
-        array[12] = x13();
-        array[13] = x14();
-        array[14] = x15(results[i].q18y);
+        array[0] = x1(applicant[x].q9x, resident[i].q10y);
+        array[1] = x2(resident[i].q9y, applicant[x].q10x);
+        array[2] = x3(applicant[x].q11x, resident[i].q11y);
+        array[3] = x4(applicant[x].q12x, resident[i].q12y);
+        array[4] = x5(applicant[x].q13x, resident[i].q3y);
+        array[5] = x6(resident[i].q13y, applicant[x].q3x);
+        array[6] = x7(applicant[x].q14x, applicant[x].q8x, resident[i].q8y);
+        array[7] = x8(resident[i].q14y, resident[i].q8y, applicant[x].q8x);
+        array[8] = x9(applicant[x].q15x, resident[i].q5y);
+        array[9] = x10(resident[i].q15y, applicant[x].q5x);
+        array[10] = x11(applicant[x].q16x, resident[i].q16y);
+        array[11] = x12(applicant[x].q17x, applicant[x].q6x, resident[i].q6y);
+        array[12] = x13(resident[i].q17y, resident[i].q6y, applicant[x].q6x);
+        array[13] = x14(applicant[x].q18x, applicant[x].q7x, resident[i].q7y);
+        array[14] = x15(resident[i].q18y, resident[i].q7y, applicant[x].q7x);
 
         for (let j = 0; j < 15; j++) {
             sum += array[j] * weightings[j];
-            let fit = {
-                fitness: sum,
-                email: results[i].email,
-            };
-            fitness.push(fit);
         }
+        let fit = {
+            fitness: sum,
+            email: results[i].email,
+        };
+        fitness.push(fit);
     }
 }
 /* Whatever else(Ændre til hvad javascripten herunder er til) */
