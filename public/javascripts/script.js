@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable array-callback-return */
 /* eslint-disable space-before-function-paren */
 /* eslint-disable prefer-const */
