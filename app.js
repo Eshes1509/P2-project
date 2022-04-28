@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable space-infix-ops */
 /* eslint-disable prefer-const */
 /* eslint-disable no-undef */
@@ -15,28 +16,29 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 
-const url = "mongodb+srv://test:test@cluster0.uwjpd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const url =
+    "mongodb+srv://test:test@cluster0.uwjpd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 });
 
 const formSchema = new mongoose.Schema(
-  {
-    data: Object,
-  },
-  { collection: "Answers" }
+    {
+        data: Object,
+    },
+    { collection: "Answers" }
 );
 
 const Form = mongoose.model("Form", formSchema);
 
-const formData = (bodyData) => {
-  Form({ data: bodyData }).save((err) => {
-    if (err) {
-      throw err;
-    }
-  });
+const formData = bodyData => {
+    Form({ data: bodyData }).save(err => {
+        if (err) {
+            throw err;
+        }
+    });
 };
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -58,13 +60,10 @@ app.post("/results", function (request, response) {
     /* response.render("pages/results.ejs"); */
 //});
 
-
- app.post("/results", urlencodedParser, (req, res) => {
-  formData(req.body);
-  res.render("pages/results.ejs", { name: req.body.name });
+app.post("/results", urlencodedParser, (req, res) => {
+    formData(req.body);
+    res.render("pages/results.ejs", { name: req.body.name });
 });
-
-
 
 // Localhost
 app.listen(process.env.PORT || 5000, function () {
