@@ -151,7 +151,7 @@ function x3(q11x, q11y) {
 }
 
 function x4(q12x, q12y) {
-    let delta, x1;
+    let delta, x4;
 
     /* To make sure that we get a postive delta */
     if (q12x > q12y) {
@@ -405,7 +405,7 @@ function compatability() {
         }
         let fit = {
             fitness: sum,
-            email: results[i].email,
+            email: resident[i].email,
         };
         fitness.push(fit);
     }
