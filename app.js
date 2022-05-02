@@ -57,8 +57,8 @@ app.get("/guide", function (request, response) {
 /*
 app.post("/results", function (request, response) {
     return response.send(request.body);
-    /* response.render("pages/results.ejs"); */
-//});
+    /* response.render("pages/results.ejs");
+}); */
 
 app.post("/results", urlencodedParser, (req, res) => {
     formData(req.body);
