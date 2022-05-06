@@ -7,6 +7,7 @@
 /* eslint-disable quotes */
 
 /* Questionnaire */
+import { database } from "../app.js";
 const multiStepForm = document.querySelector("[data-multi-step]");
 const formSteps = [...multiStepForm.querySelectorAll("[data-step]")];
 
@@ -151,7 +152,7 @@ function x3(q11x, q11y) {
 }
 
 function x4(q12x, q12y) {
-    let delta, x1;
+    let delta, x4;
 
     /* To make sure that we get a postive delta */
     if (q12x > q12y) {
@@ -379,8 +380,11 @@ let weightings = [
 ];
 let fitness = [{}];
 
+let resident = database.collection("Answers").find({}).toArray();
+console.log(resident[1]);
+
 function compatability() {
-    for (let i = 0; i < DB.length; i++) {
+    for (let i = 0; i < Db.answers.length; i++) {
         let array = [];
         let sum = 0;
 

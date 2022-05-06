@@ -15,14 +15,10 @@ const server = require("http").Server(app);
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
+const MongoClient = require("mongodb").MongoClient;
 
 const url =
     "mongodb+srv://test:test@cluster0.uwjpd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
-mongoose.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
 
 const formSchema = new mongoose.Schema(
     {
@@ -65,7 +61,31 @@ app.post("/results", urlencodedParser, (req, res) => {
     res.render("pages/results.ejs", { name: req.body.name });
 });
 
+app.get("/test", (req, res) => {
+    database
+        .collection("Answers")
+        .find({})
+        .toArray((error, result) => {
+            if (error) throw error;
+            res.send(result);
+        });
+});
+
+let database;
+
 // Localhost
-app.listen(process.env.PORT || 5000, function () {
-    console.log("My server is running on port 5000");
+app.listen(PORT, () => {
+    MongoClient.connect(
+        url,
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        },
+        (error, result) => {
+            if (error) throw error;
+
+            database = result.db("myFirstDatabase");
+            console.log("My server is running on port 5000");
+        }
+    );
 });
