@@ -76,6 +76,8 @@ app.get("/test", (req, res) => {
 //app.use(bodyparser.json());
 app.set("views", path.join(__dirname, "/views/"));
 
+app.use('/pages', indexRoute);
+
 let database;
 
 // Localhost
