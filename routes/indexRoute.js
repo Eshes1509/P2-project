@@ -1,3 +1,13 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable space-infix-ops */
+/* eslint-disable prefer-const */
+/* eslint-disable no-undef */
+/* eslint-disable node/no-path-concat */
+/* eslint-disable indent */
+/* eslint-disable quotes */
+/* eslint-disable semi */
+/* eslint-disable no-unused-vars */
+
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -39,6 +49,5 @@ app.get("/test", (request, response) => {
             response.send(result);
         });
 });
-
 
 module.exports = app;
