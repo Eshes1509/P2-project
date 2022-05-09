@@ -7,10 +7,6 @@
 /* eslint-disable quotes */
 
 /* Questionnaire */
-<<<<<<< HEAD
-
-=======
->>>>>>> 4271f6924dfe30281fda5eb118a71bb22d2e9e36
 const multiStepForm = document.querySelector("[data-multi-step]");
 const formSteps = [...multiStepForm.querySelectorAll("[data-step]")];
 

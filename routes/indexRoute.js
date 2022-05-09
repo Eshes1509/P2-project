@@ -3,28 +3,40 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const Applicant = mongoose.model("Form");
 
+
 const app = express();
 
 app.get("/", function (request, response) {
     return response.render("pages/index");
+
 });
 
+function insertData(request, response) {
+    let applicant = new Applicant();
+    applicant = request.body;
+    applicant.save((err, doc) => {
+        if(!err) 
+            response.redirect('pages/results');
+    });
+}
+
+
 app.post("/results", function (request, response) {
-    return response.send(request.body);
-     response.render("pages/results.ejs");
+     return insertData(request, response);
 }); 
 
 app.get("/guide", function (request, response) {
     return response.render("pages/guide.ejs");
 });
 
-app.get("/test", (req, res) => {
+let database;
+app.get("/test", (request, response) => {
     database
         .collection("Answers")
         .find({})
         .toArray((error, result) => {
             if (error) throw error;
-            res.send(result);
+            response.send(result);
         });
 });
 
