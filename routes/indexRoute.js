@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const mongoose = require('mongoose');
-const Applicant = mongoose.model('Form');
+const mongoose = require("mongoose");
+const Applicant = mongoose.model("Form");
 
 const app = express();
 
