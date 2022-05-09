@@ -5,6 +5,8 @@ const Applicant = mongoose.model('Form');
 
 const app = express();
 
-router.get("/", function (request, response) {
+app.get("/", function (request, response) {
     return response.render("pages/index");
 });
+
+module.exports = app;

@@ -13,7 +13,7 @@ require("./models/db");
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
-const bodyParser = require("body-parser");
+const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const MongoClient = require("mongodb").MongoClient;
@@ -40,7 +40,8 @@ const formData = bodyData => {
     });
 }; */
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+//const urlencodedParser = bodyParser.urlencoded({ extended: false });
+//app.use(bodyparser.json());
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -76,7 +77,7 @@ app.get("/test", (req, res) => {
 //app.use(bodyparser.json());
 app.set("views", path.join(__dirname, "/views/"));
 
-app.use('/pages', indexRoute);
+app.use('/', indexRoute);
 
 let database;
 
