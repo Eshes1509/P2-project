@@ -7,7 +7,6 @@
 /* eslint-disable quotes */
 
 /* Questionnaire */
-import { database } from "../app.js";
 const multiStepForm = document.querySelector("[data-multi-step]");
 const formSteps = [...multiStepForm.querySelectorAll("[data-step]")];
 
