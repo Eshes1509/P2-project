@@ -7,6 +7,7 @@
 /* eslint-disable quotes */
 
 /* Questionnaire */
+import { database } from "../app.js";
 const multiStepForm = document.querySelector("[data-multi-step]");
 const formSteps = [...multiStepForm.querySelectorAll("[data-step]")];
 
@@ -379,8 +380,11 @@ let weightings = [
 ];
 let fitness = [{}];
 
+let resident = database.collection("Answers").find({}).toArray();
+console.log(resident[1]);
+
 function compatability() {
-    for (let i = 0; i < DB.length; i++) {
+    for (let i = 0; i < Db.answers.length; i++) {
         let array = [];
         let sum = 0;
 
@@ -405,7 +409,7 @@ function compatability() {
         }
         let fit = {
             fitness: sum,
-            email: resident[i].email,
+            email: results[i].email,
         };
         fitness.push(fit);
     }

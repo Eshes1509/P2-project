@@ -73,6 +73,7 @@
                     <h2>How it Works</h2>
                     <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa iste suscipit ea neque quas odit.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, eveniet? Numquam, natus cumque animi eveniet, ipsa voluptas distinctio voluptatem rerum nisi, optio alias? Modi quibusdam voluptate beatae officiis doloremque. Animi.</p>
+
                 </div>
             </div>
         </section>
@@ -112,35 +113,41 @@
         </section>
 
         <!-- Questionnaire -->
+       
         <section
             id="questionnaire"
             class="bg-dark text-dark p-5 p-lg-0 pt-lg-5 text-center text-sm-start"
         >
         <h1 class="text-center mb-4 mt-5 text-light">Questionnaire</h1>
-        <form data-multi-step class="multi-step-form" action="/results" method="POST">
+        <form id="survey-form" data-multi-step class="multi-step-form" action="/results" method="POST">
             <div class="mb-5 card-step" data-step>
                 <h3 class="step-title">Personal Information</h3>
+               
                 <div class="form-group">
-                    <label for="firstName">First Name</label>
+                    <label for="firstName" id="firstNameLabel">First Name</label>
                     <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Jens"/>
                 </div>
-                <div class=" form-group">
-                    <label for="lastName">Last Name</label>
+
+                <div class="form-group">
+                    <label for="lastName" id="lastNameLabel">Last Name</label>
                     <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Jensen"/>
                 </div>
+
                 <div class="form-group">
                     <label for="gender">Gender</label>
-                    <select class="form-select" name="gender" id="gender">
+                    <select class="form-control" name="gender" id="gender">
                         <option selected>Select gender.</option>
                         <option value="1">Male</option>
                         <option value="2">Female</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com"/>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
+
                 <div class="form-group">
                     <label for="age">Age</label>
                     <select class="form-select" name="age" id="age">
@@ -150,6 +157,7 @@
                         <option value="3">26-30+</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="major">What Major are you studying?</label>
                     <select class="form-select" id="major" name="major">
@@ -215,10 +223,12 @@
                         <option value="AL">Økonomi</option>
                     </select>
                 </div>
+
                 <div class="mb-3 form-group">
                     <label for="semester" class="form-label">What semester are you on?</label>
                     <input type="number" class="form-control" name="semester" id="semester" min="1" max="10" placeholder="Semester currently studying"/>
                 </div>
+
                 <div class="form-group">
                     <label for="preferStudy">Nationality</label>
                     <select class="form-select" id="roommateLanguage" name="roommateLanguage">
@@ -477,10 +487,13 @@
                         <option value="ZW">Zimbabwe</option>
                     </select>
                 </div>
+
                 <button type="button" class="btn btn-primary" data-next>Next</button>
             </div>
+
             <div class="mb-5 card-step" data-step>
                 <h3 class="step-title">Dormitory Roommate 1/2</h3>
+                
                 <div class="form-group">
                     <label for="planVisitorsRoommate">How often would you prefer your roommate having visitors over?</label>
                     <select class="form-select" name="planVisitorsRoommate" id="planVisitorsRoommate">
@@ -492,6 +505,7 @@
                         <option value="5">Never</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
                     <label for="planVisitors">How often do you plan on having visitors over?</label>
                     <select class="form-select" name="planVisitors" id="planVisitors">
@@ -503,6 +517,7 @@
                         <option value="5">Never</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="preferStudy">How do you prefer to study?</label>
                     <select class="form-select" name="preferStudy" id="preferStudy">
@@ -514,6 +529,7 @@
                         <option value="5">Not sure</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="bedtime">When do you typically go to bed?</label>
                     <select class="form-select" name="bedtime" id="bedtime">
@@ -523,6 +539,7 @@
                         <option value="3">After 12. AM</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="roommateGender">What gender roommate would you prefer?</label>
                     <select class="form-select" name="roommateGender" id="roommateGender">
@@ -532,6 +549,7 @@
                         <option value="3">Does not matter</option>
                     </select>
                 </div>
+
                 <div class="mb-3 form-group">
                     <label for="">Do you prefer your roommate to be the same nationality as you?</label>
                     <div class="btn-group" role="group">
@@ -545,6 +563,7 @@
                 <button type="button" class="btn btn-secondary" data-previous>Previous</button>
                 <button type="button" class="btn btn-primary" data-next>Next</button>
             </div>
+
             <div class="mb-5 card-step" data-step>
                 <h3 class="step-title">Dormitory Roommate 2/2</h3>
                 <div class="form-group">
@@ -557,6 +576,7 @@
                         <option value="4">Does not matter</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="smoker">Are you a smoker?</label>
                     <div class="btn-group" role="group">
@@ -567,6 +587,7 @@
                         <label class="btn btn-outline-primary" for="smokerNo">No</label>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="btnradio5">Do you prefer your roommate to have the same major as you?</label>
                     <div class="btn-group" role="group">
@@ -577,6 +598,7 @@
                         <label class="btn btn-outline-primary" for="No">No</label>
                     </div>
                 </div>
+
                 <div class="mb-3 form-group">
                     <label for="btnradio8">Do you prefer your roommate to be on the same semester as you?</label>
                     <div class="btn-group" role="group">
@@ -591,6 +613,7 @@
                 <button type="button" class="btn btn-secondary" data-previous>Previous</button>
                 <button type="button" class="btn btn-primary" data-next>Next</button>
             </div>
+
             <div class="mb-5 card-step" data-step>
                 <h3 class="step-title">Information about the dormitory</h3>
                 <div class="form-group">
@@ -634,6 +657,7 @@
                 <button type="button" class="btn btn-secondary" data-previous>Previous</button>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
+               
         </form>
         </section>
 
@@ -743,12 +767,13 @@
                                 <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
                             </div>
                         </div>
-                    </div> 
+                    </div>
+                     
                 </div>
             </div>
         </section>
 
-        <!-- Contact -->
+        <!-- Contact & Map -->
         <section class="p-5">
             <div class="container">
                 <div class="row g-4">
@@ -767,7 +792,7 @@
                         </ul>
                     </div>
                     <div class="col-md">
-                        <img src="/images/contact.svg" class="img-fluid w-50 d-none d-sm-block" alt="">
+                        <img src="/images/contact.svg" class="img-fluid w-50 d-none d-sm-block"" alt="">
                     </div>
                 </div>
             </div>
@@ -778,5 +803,10 @@
 
         <!-- JavaScript -->
         <%- include('../partials/script') %>
+
+        <script>
+            document.getElementById('survey-form').reset()
+        </script>
+
     </body>
 </html>
