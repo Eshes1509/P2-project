@@ -7,6 +7,7 @@
 /* eslint-disable quotes */
 /* eslint-disable semi */
 /* eslint-disable no-unused-vars */
+
 const PORT = process.env.PORT || 5000;
 
 require("./models/db");
@@ -14,36 +15,13 @@ const express = require("express");
 const app = express();
 const server = require("http").Server(app);
 const bodyparser = require("body-parser");
-const mongoose = require("mongoose");
 const ejs = require("ejs");
 const MongoClient = require("mongodb").MongoClient;
 const path = require("path");
 const indexRoute = require("./routes/indexRoute");
 
-const url =
-    "mongodb+srv://test:test@cluster0.uwjpd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-/*
-    const formSchema = new mongoose.Schema(
-    {
-        data: Object,
-    },
-    { collection: "Answers" }
-);
-
-const Form = mongoose.model("Form", formSchema);
-
-const formData = bodyData => {
-    Form({ data: bodyData }).save(err => {
-        if (err) {
-            throw err;
-        }
-    });
-}; */
-
-//const urlencodedParser = bodyParser.urlencoded({ extended: false });
-//app.use(bodyparser.json());
-
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views/"));
 app.use(express.static("public"));
 
 /* app.get("/", function (request, response) {
@@ -57,7 +35,7 @@ app.get("/guide", function (request, response) {
 app.post("/results", function (request, response) {
     return response.send(request.body);
      response.render("pages/results.ejs");
-}); 
+});
 
 app.post("/results", urlencodedParser, (req, res) => {
     formData(req.body);
@@ -74,26 +52,10 @@ app.get("/test", (req, res) => {
         });
 }); */
 
-//app.use(bodyparser.json());
-app.set("views", path.join(__dirname, "/views/"));
-
 app.use("/", indexRoute);
 
-let database;
-
 // Localhost
-app.listen(PORT, () => {
-    MongoClient.connect(
-        url,
-        {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        },
-        (error, result) => {
-            if (error) throw error;
-
-            database = result.db("myFirstDatabase");
-            console.log("My server is running on port 5000");
-        }
-    );
+app.listen(PORT, function (err) {
+    if (err) console.log("Error in server setup");
+    console.log("Server listening on Port", PORT);
 });
