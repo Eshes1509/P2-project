@@ -14,7 +14,6 @@ require("./models/db");
 const express = require("express");
 const app = express();
 const server = require("http").Server(app);
-const bodyparser = require("body-parser");
 const ejs = require("ejs");
 const MongoClient = require("mongodb").MongoClient;
 const path = require("path");
@@ -24,35 +23,23 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views/"));
 app.use(express.static("public"));
 
-/* app.get("/", function (request, response) {
-    return response.render("pages/index.ejs");
-});
+// Connection URI
+const uri =
+    "mongodb+srv://test:test@cluster0.uwjpd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-app.get("/guide", function (request, response) {
-    return response.render("pages/guide.ejs");
-});
+// Create a new MongoClient
+const mongoclient = new MongoClient(uri);
 
-app.post("/results", function (request, response) {
-    return response.send(request.body);
-     response.render("pages/results.ejs");
-});
-
-app.post("/results", urlencodedParser, (req, res) => {
-    formData(req.body);
-    res.render("pages/results.ejs", { name: req.body.name });
-});
-
-app.get("/test", (req, res) => {
-    database
-        .collection("Answers")
-        .find({})
-        .toArray((error, result) => {
-            if (error) throw error;
-            res.send(result);
-        });
-}); */
+let db = mongoclient.db("");
 
 app.use("/", indexRoute);
+
+app.use(function (req, res, next) {
+    req.db = db;
+    next();
+});
+
+app.use("/results", indexRoute);
 
 // Localhost
 app.listen(PORT, function (err) {

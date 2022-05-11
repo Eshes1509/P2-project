@@ -9,7 +9,7 @@
 /* eslint-disable semi */
 /* eslint-disable no-unused-vars */
 
-const { MongoClient } = require("mongodb");
+/* const { MongoClient } = require("mongodb");
 
 // Connection URI
 const uri =
@@ -32,3 +32,4 @@ async function run() {
     }
 }
 run().catch(console.dir);
+ */
