@@ -39,7 +39,7 @@ router.post("/results", function (request, response) {
     client.connect(function (err) {
         const db = client.db("myFirstDatabase");
         assert.equal(null, err);
-        db.collection("applicants").insertOne(item, function (err, result) {
+        db.collection("residents").insertOne(item, function (err, result) {
             assert.equal(null, err);
             console.log("Item inserted");
         });
