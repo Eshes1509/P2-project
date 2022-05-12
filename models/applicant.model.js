@@ -61,10 +61,11 @@ let formSchema = new mongoose.Schema({
     aalborgSection:{
         type: String
     }
+    
+    
+});
 
-
-})
-
+mongoose.model("Applicants", formSchema);
 
 
 
@@ -83,7 +84,7 @@ const formSchema = new mongoose.Schema(
     //{ collection: "Answers" }
 );
  */
-const Form = mongoose.model("Form", formSchema);
+//mongoose.model("Form", formSchema);
 /* 
 const formData = bodyData => {
     Form({ data: bodyData }).save(err => {

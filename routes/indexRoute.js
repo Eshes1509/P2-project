@@ -11,7 +11,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const Applicant = mongoose.model("Form");
+const Applicant = mongoose.model("Applicants");
 
 
 const app = express();
@@ -55,7 +55,7 @@ function insertData(request, response) {
 
 
 app.post("/results", function (request, response) {
-     return insertData(request, response);
+     insertData(request, response);
 }); 
 
 app.get("/guide", function (request, response) {
