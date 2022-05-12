@@ -48,7 +48,7 @@ router.post("/results", function (request, response) {
     client.connect(function (err) {
         const db = client.db("myFirstDatabase");
         assert.equal(null, err);
-        db.collection("applicants")
+        db.collection("residents")
             .find({})
             .toArray(function (err, resident) {
                 if (err) throw err;
@@ -457,6 +457,14 @@ function compatability(request, resident) {
         fitness.push(fit);
 
         console.log(fitness[i]);
+    }
+
+    for (let i = 0; i < fitness.length; i++) {
+        fitness.sort((a, b) => a.fitness.localeCompare(b.fitness));
+    }
+
+    for (let i = 0; i < fitness.length; i++) {
+        console.log(fitness);
     }
 }
 
