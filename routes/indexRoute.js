@@ -11,16 +11,9 @@
 
 const express = require("express");
 const router = express.Router();
-<<<<<<< HEAD
-const mongoose = require("mongoose");
-const Applicant = mongoose.model("Applicants");
-=======
 const { MongoClient } = require("mongodb");
-let mongo = require("mongodb");
 const assert = require("assert");
 const bodyParser = require("body-parser");
-const res = require("express/lib/response");
->>>>>>> 9a0241ae5192545496414b43858e6558331da4d6
 
 router.use(bodyParser.json());
 
@@ -464,19 +457,11 @@ function compatability(request, resident) {
             sum += array[j] * weightings[j];
         }
 
-        if (sum < 0) {
-            sum = 0;
-        }
         let fit = {
             fitness: sum,
             email: resident[i].email,
         };
-
-        if (sum === 0) {
-            console.log("Ikke kompatibel");
-        } else {
-            fitness.push(fit);
-        }
+        fitness.push(fit);
 
         console.log(fitness[i]);
     }
