@@ -26,7 +26,6 @@ const uri =
 const client = new MongoClient(uri);
 
 router.get("/", function (request, response) {
-    client.close();
     response.render("pages/index");
 });
 
@@ -54,15 +53,9 @@ router.post("/results", function (request, response) {
             .toArray(function (err, resident) {
                 if (err) throw err;
 
-<<<<<<< HEAD
-app.post("/results", function (request, response) {
-     insertData(request, response);
-}); 
-=======
                 compatability(request, resident);
             });
     });
->>>>>>> 9a0241ae5192545496414b43858e6558331da4d6
 
     client.close();
     response.render("pages/results");
