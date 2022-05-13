@@ -53,6 +53,7 @@ router.post("/results", function (request, response) {
             .toArray(function (err, resident) {
                 if (err) throw err;
 
+                weighting(request);
                 compatability(request, resident);
             });
     });
@@ -301,9 +302,9 @@ function x11(q16x, q16y) {
     if (q16x === "smokerYes" || q16x === "smokerNo") {
         if (q16x === q16y) {
             x11 = 1;
+        } else {
+            x11 = -1;
         }
-    } else {
-        x11 = -1;
     }
 
     return x11;
@@ -377,6 +378,43 @@ let weightings = [
     0.1, 0.0285, 0.1, 0.1, 0.1, 0.1, 0.0285, 0.1, 0.1, 0.0285, 0.1, 0.0285,
     0.0285, 0.0285, 0.0285,
 ];
+
+function weighting(request) {
+    let weight = [];
+    let x = [
+        planVisitorsRoommate,
+        preferStudy,
+        bedtime,
+        roommateGender,
+        roommateLanguage,
+        preferredAgeRange,
+        btnradio4,
+        roommateMajor,
+        roommateSemester,
+    ];
+    let vigtigID = [];
+
+    vigtigID[0] = request.body.Q1;
+    vigtigID[1] = request.body.Q2;
+    vigtigID[2] = request.body.Q3;
+    vigtigID[3] = request.body.Q4;
+    vigtigID[4] = request.body.Q5;
+
+    for (let i = 0; i < 15; i++) {
+        for (let j = 0; j < 5; j++) {
+            if (vigtigID[j] === x[i]) {
+                weight[i] = 10;
+            } else {
+                weight[i] = 5;
+            }
+        }
+    }
+
+    for (let i = 0; i < 15; i++) {
+        console.log(weight[i]);
+    }
+}
+
 let fitness = [];
 
 function compatability(request, resident) {
@@ -459,12 +497,12 @@ function compatability(request, resident) {
         console.log(fitness[i]);
     }
 
-    for (let i = 0; i < fitness.length; i++) {
-        fitness.sort((a, b) => a.fitness.localeCompare(b.fitness));
-    }
+    fitness.sort((a, b) => (a.fitness < b.fitness ? 1 : -1));
 
-    for (let i = 0; i < fitness.length; i++) {
-        console.log(fitness);
+    console.log(fitness);
+
+    for (let i = 0; i < 3; i++) {
+        console.log(fitness[i]);
     }
 }
 
