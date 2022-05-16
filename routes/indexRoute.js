@@ -29,12 +29,8 @@ router.get("/", function (request, response) {
     response.render("pages/index");
 });
 
-router.get("/contact_us", function (request, response) {
-    response.render("pages/contact_us");
-});
-
-router.post("/result", function (request, response) {
-    return insertData(request, response);
+router.get("/contact", function (request, response) {
+    response.render("pages/contact");
 });
 
 router.post("/results", function (request, response) {
