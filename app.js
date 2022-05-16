@@ -24,6 +24,8 @@ app.use(express.static("public"));
 
 app.use("/", indexRoute);
 
+app.use("/contact_us)", indexRoute);
+
 app.use("/results", indexRoute);
 
 // Localhost
