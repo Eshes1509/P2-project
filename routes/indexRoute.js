@@ -16,6 +16,7 @@ const router = express.Router();
 const { MongoClient } = require("mongodb");
 const assert = require("assert");
 const bodyParser = require("body-parser");
+let fitness = [];
 
 router.use(bodyParser.json());
 
@@ -426,8 +427,6 @@ function weighting(request) {
         console.log(weight[i]);
     }
 }
-
-fitness = [];
 
 function compatability(request, resident) {
     for (let i = 0; i < resident.length; i++) {
