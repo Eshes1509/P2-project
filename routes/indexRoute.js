@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable space-before-function-paren */
 /* eslint-disable comma-dangle */
 /* eslint-disable space-infix-ops */
@@ -10,6 +11,7 @@
 /* eslint-disable no-unused-vars */
 
 const express = require("express");
+const app = express();
 const router = express.Router();
 const { MongoClient } = require("mongodb");
 const assert = require("assert");
@@ -33,8 +35,13 @@ router.get("/contact", function (request, response) {
     response.render("pages/contact");
 });
 
+router.get("/result", function (request, response) {
+    response.render("pages/results");
+});
+
 router.post("/results", function (request, response) {
     let item = request.body;
+    let applicant_name = request.body.firstName;
 
     client.connect(function (err) {
         const db = client.db("myFirstDatabase");
@@ -53,13 +60,18 @@ router.post("/results", function (request, response) {
             .toArray(function (err, resident) {
                 if (err) throw err;
 
-                weighting(request);
+                /* weighting(request); */
                 compatability(request, resident);
             });
     });
 
     client.close();
-    response.render("pages/results");
+    response.render("pages/results", {
+        applicant_name: applicant_name,
+        resident0: fitness[0],
+        resident1: fitness[1],
+        resident2: fitness[2],
+    });
 });
 
 router.get("/guide", function (request, response) {
@@ -415,7 +427,7 @@ function weighting(request) {
     }
 }
 
-let fitness = [];
+fitness = [];
 
 function compatability(request, resident) {
     for (let i = 0; i < resident.length; i++) {
@@ -489,8 +501,9 @@ function compatability(request, resident) {
         }
 
         let fit = {
-            fitness: sum,
+            fitness: Math.round(sum * 100),
             email: resident[i].email,
+            name: resident[i].firstName + " " + resident[i].lastName,
         };
         fitness.push(fit);
 

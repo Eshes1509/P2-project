@@ -7,7 +7,64 @@
         <!-- Navbar -->
         <%- include('../partials/navbar') %>
 
-        <h1>Results</h1>
+        <h1 class="mt-5 text-center">Results</h1>
+        <h2 class="mt-3 text-center">
+            Hi <%= applicant_name %>, here are your results from the
+            quesitonnaire.
+        </h2>
+        <div class="card-group p-5">
+            <div class="card">
+                <img
+                    src="https://randomuser.me/api/portraits/men/1.jpg"
+                    class="card-img-top"
+                    alt="..."
+                />
+                <div class="card-body">
+                    <h5 class="card-title">Best Match</h5>
+                    <p class="card-text">
+                        <% let fit = resident0 %> Compatibility %: <%=
+                        fit.fitness %><br />
+                        Name: <%= fit.name %> <br />
+                        Email: <%= fit.email %><br />
+                        Location: <br />
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img
+                    src="https://randomuser.me/api/portraits/women/1.jpg"
+                    class="card-img-top"
+                    alt="..."
+                />
+                <div class="card-body">
+                    <h5 class="card-title">Second Match</h5>
+                    <p class="card-text">
+                        <% let fit1 = resident1 %> Compatibility %: <%=
+                        fit1.fitness %><br />
+                        Name: <%= fit1.name %> <br />
+                        Email: <%= fit1.email %><br />
+                        Location: <br />
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img
+                    src="https://randomuser.me/api/portraits/men/2.jpg"
+                    class="card-img-top"
+                    alt="..."
+                />
+                <div class="card-body">
+                    <h5 class="card-title">Third Match</h5>
+                    <p class="card-text">
+                        <% let fit2 = resident2 %> Compatibility %: <%=
+                        fit2.fitness %><br />
+                        Name: <%= fit2.name %> <br />
+                        Email: <%= fit2.email %><br />
+                        Location: <br />
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
         <%- include('../partials/footer') %>
