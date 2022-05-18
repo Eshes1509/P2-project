@@ -19,7 +19,6 @@ const bodyParser = require("body-parser");
 let fitness = [];
 
 router.use(bodyParser.json());
-
 router.use(bodyParser.urlencoded({ extended: true }));
 
 // Connection URI
@@ -69,9 +68,7 @@ router.post("/results", function (request, response) {
     client.close();
     response.render("pages/results", {
         applicant_name: applicant_name,
-        resident0: fitness[0],
-        resident1: fitness[1],
-        resident2: fitness[2],
+        resident: fitness,
     });
 });
 
