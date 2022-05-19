@@ -62,13 +62,12 @@ router.post("/results", function (request, response) {
 
                 /* weighting(request); */
                 compatability(request, resident);
+                response.render("pages/results", {
+                    applicant_name: applicant_name,
+                    resident: fitness,
+                });
+                client.close();
             });
-    });
-
-    client.close();
-    response.render("pages/results", {
-        applicant_name: applicant_name,
-        resident: fitness,
     });
 });
 
