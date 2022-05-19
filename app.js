@@ -24,10 +24,6 @@ app.use(express.static("public"));
 
 app.use("/", indexRoute);
 
-app.use("/contact", indexRoute);
-
-app.use("/results", indexRoute);
-
 // Localhost
 app.listen(PORT, function (err) {
     if (err) console.log("Error in server setup");
