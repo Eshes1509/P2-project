@@ -502,13 +502,9 @@ function compatability(request, resident) {
             name: resident[i].firstName + " " + resident[i].lastName,
         };
         fitness.push(fit);
-
-        console.log(fitness[i]);
     }
 
     fitness.sort((a, b) => (a.fitness < b.fitness ? 1 : -1));
-
-    console.log(fitness);
 
     for (let i = 0; i < 3; i++) {
         console.log(fitness[i]);
