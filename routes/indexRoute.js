@@ -11,11 +11,10 @@
 /* eslint-disable no-unused-vars */
 
 const express = require("express");
-const app = express();
 const router = express.Router();
 const { MongoClient } = require("mongodb");
-const assert = require("assert");
 const bodyParser = require("body-parser");
+const { check, validationResult } = require("express-validator");
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
