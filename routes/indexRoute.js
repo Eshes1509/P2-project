@@ -35,10 +35,6 @@ router.get("/contact", function (request, response) {
     response.render("pages/contact");
 });
 
-router.get("/result", function (request, response) {
-    response.render("pages/results");
-});
-
 router.post("/results", async function (request, response) {
     await client.connect();
 
