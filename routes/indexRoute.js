@@ -42,7 +42,7 @@ router.post("/results", async function (request, response) {
     await client.connect();
 
     const db = client.db("myFirstDatabase");
-    await db.collection("resident").insertOne(request.body);
+    await db.collection("residents").insertOne(request.body);
 
     let resident = await db.collection("residents").find({}).toArray();
 
@@ -397,9 +397,9 @@ function weighting(request) {
         }
     }
 
-    for (let i = 0; i < 15; i++) {
+    /* for (let i = 0; i < 15; i++) {
         console.log(weight[i]);
-    }
+    } */
 
     return weight;
 }
@@ -456,21 +456,38 @@ function compatability(request, resident, weight) {
             request.body.semester
         );
 
-        array[0] = X1;
-        array[1] = X2;
-        array[2] = X3;
-        array[3] = X4;
-        array[4] = X5;
-        array[5] = X6;
-        array[6] = X7;
-        array[7] = X8;
-        array[8] = X9;
-        array[9] = X10;
-        array[10] = X11;
-        array[11] = X12;
-        array[12] = X13;
-        array[13] = X14;
-        array[14] = X15;
+        if (
+            resident[i].btnradio7 === "handicapFriendlyNo" &&
+            request.body.btnradio7 === "handicapFriendlyYes"
+        ) {
+            console.log("Handicap");
+            break;
+        } else if (
+            parseInt(resident[i].budget) > parseInt(request.body.budget)
+        ) {
+            console.log("Budget");
+            break;
+        } else if (request.body.aalborgSection !== resident[i].aalborgSection) {
+            console.log("Section");
+            break;
+        } else {
+            array[0] = X1;
+            array[1] = X2;
+            array[2] = X3;
+            array[3] = X4;
+            array[4] = X5;
+            array[5] = X6;
+            array[6] = X7;
+            array[7] = X8;
+            array[8] = X9;
+            array[9] = X10;
+            array[10] = X11;
+            array[11] = X12;
+            array[12] = X13;
+            array[13] = X14;
+            array[14] = X15;
+            console.log("X'er");
+        }
 
         for (let j = 0; j < 15; j++) {
             sum += array[j] * weight[j];
@@ -480,6 +497,9 @@ function compatability(request, resident, weight) {
             fitness: Math.round(sum * 100),
             email: resident[i].email,
             name: resident[i].firstName + " " + resident[i].lastName,
+            aalborgSection: resident[i].aalborgSection,
+            budget: resident[i].budget,
+            /* handicapFriendly: btnradio7, */
         };
         fitness.push(fit);
     }
