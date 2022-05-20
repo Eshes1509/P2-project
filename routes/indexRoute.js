@@ -16,7 +16,7 @@ const router = express.Router();
 const { MongoClient } = require("mongodb");
 const assert = require("assert");
 const bodyParser = require("body-parser");
-let fitness = [];
+/* let fitness = []; */
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -39,35 +39,21 @@ router.get("/result", function (request, response) {
     response.render("pages/results");
 });
 
-router.post("/results", function (request, response) {
-    let item = request.body;
-    let applicant_name = request.body.firstName;
+router.post("/results", async function (request, response) {
+    await client.connect();
 
-    client.connect(function (err) {
-        const db = client.db("myFirstDatabase");
-        assert.equal(null, err);
-        db.collection("residents").insertOne(item, function (err, result) {
-            assert.equal(null, err);
-            console.log("Item inserted");
-        });
-    });
+    const db = client.db("myFirstDatabase");
+    await db.collection("resident").insertOne(request.body);
 
-    client.connect(function (err) {
-        const db = client.db("myFirstDatabase");
-        assert.equal(null, err);
-        db.collection("residents")
-            .find({})
-            .toArray(function (err, resident) {
-                if (err) throw err;
+    let resident = await db.collection("residents").find({}).toArray();
 
-                /* weighting(request); */
-                compatability(request, resident);
-                response.render("pages/results", {
-                    applicant_name: applicant_name,
-                    resident: fitness,
-                });
-                client.close();
-            });
+    let fitness = compatability(request, resident);
+
+    client.close();
+
+    response.render("pages/results", {
+        applicant_name: request.body.firstName,
+        resident: fitness,
     });
 });
 
@@ -425,6 +411,7 @@ function weighting(request) {
 }
 
 function compatability(request, resident) {
+    let fitness = [];
     for (let i = 0; i < resident.length; i++) {
         let array = [];
         let sum = 0;
@@ -508,6 +495,8 @@ function compatability(request, resident) {
     for (let i = 0; i < 3; i++) {
         console.log(fitness[i]);
     }
+
+    return fitness;
 }
 
 module.exports = router;
