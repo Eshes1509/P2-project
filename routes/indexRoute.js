@@ -16,7 +16,6 @@ const router = express.Router();
 const { MongoClient } = require("mongodb");
 const assert = require("assert");
 const bodyParser = require("body-parser");
-/* let fitness = []; */
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -365,11 +364,6 @@ function x15(q18y, q7y, q7x) {
 
     return x15;
 }
-
-/* let weightings = [
-    0.1, 0.0285, 0.1, 0.1, 0.1, 0.1, 0.0285, 0.1, 0.1, 0.0285, 0.1, 0.0285,
-    0.0285, 0.0285, 0.0285,
-]; */
 
 function weighting(request) {
     let weight = [];
