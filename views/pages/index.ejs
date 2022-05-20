@@ -125,18 +125,18 @@
                
                 <div class="form-group">
                     <label for="firstName" id="firstNameLabel">First Name</label>
-                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Jens"/>
+                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Jens" required/>
                 </div>
 
                 <div class="form-group">
                     <label for="lastName" id="lastNameLabel">Last Name</label>
-                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Jensen"/>
+                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Jensen" required/>
                 </div>
 
                 <div class="form-group">
                     <label for="gender">Gender</label>
-                    <select class="form-control" name="gender" id="gender">
-                        <option selected>Select gender.</option>
+                    <select class="form-control" name="gender" id="gender" required>
+                        <option selected disabled >Select gender.</option>
                         <option value="1">Male</option>
                         <option value="2">Female</option>
                     </select>
@@ -144,14 +144,14 @@
 
                 <div class="form-group">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com"/>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required/>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
 
                 <div class="form-group">
                     <label for="age">Age</label>
-                    <select class="form-select" name="age" id="age">
-                        <option selected>Select your age.</option>
+                    <select class="form-select" name="age" id="age" required>
+                        <option selected disabled>Select your age.</option>
                         <option value="1">18-21</option>
                         <option value="2">22-25</option>
                         <option value="3">26-30+</option>
@@ -160,8 +160,8 @@
 
                 <div class="form-group">
                     <label for="major">What Major are you studying?</label>
-                    <select class="form-select" id="major" name="major">
-                        <option>Select major.</option>
+                    <select class="form-select" id="major" name="major" required>
+                        <option selected disabled>Select major.</option>
                         <option value="AF">Anvendt filosofi</option>
                         <option value="AD">Arkitektur og design</option>
                         <option value="BIO">Biologi</option>
@@ -226,13 +226,13 @@
 
                 <div class="mb-3 form-group">
                     <label for="semester" class="form-label">What semester are you on?</label>
-                    <input type="number" class="form-control" name="semester" id="semester" min="1" max="10" placeholder="Semester currently studying"/>
+                    <input type="number" class="form-control" name="semester" id="semester" min="1" max="10" placeholder="Semester currently studying" required/>
                 </div>
 
                 <div class="form-group">
                     <label for="preferStudy">Nationality</label>
                     <select class="form-select" id="roommateLanguage" name="roommateLanguage">
-                        <option>Select nationality.</option>
+                        <option selected disabled>Select nationality.</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Aland Islands</option>
                         <option value="AL">Albania</option>
@@ -496,8 +496,8 @@
                 
                 <div class="form-group">
                     <label for="planVisitorsRoommate">How often would you prefer your roommate having visitors over?</label>
-                    <select class="form-select" name="planVisitorsRoommate" id="planVisitorsRoommate">
-                        <option selected>Select how often.</option>
+                    <select class="form-select" name="planVisitorsRoommate" id="planVisitorsRoommate" required>
+                        <option selected disabled>Select how often.</option>
                         <option value="1">Every day</option>
                         <option value="2">A few times a week</option>
                         <option value="3">Once a week</option>
@@ -508,8 +508,8 @@
                 
                 <div class="form-group">
                     <label for="planVisitors">How often do you plan on having visitors over?</label>
-                    <select class="form-select" name="planVisitors" id="planVisitors">
-                        <option selected>Select how often.</option>
+                    <select class="form-select" name="planVisitors" id="planVisitors" required>
+                        <option selected disabled>Select how often.</option>
                         <option value="1">Every day</option>
                         <option value="2">A few times a week</option>
                         <option value="3">Once a week</option>
@@ -520,8 +520,8 @@
 
                 <div class="form-group">
                     <label for="preferStudy">How do you prefer to study?</label>
-                    <select class="form-select" name="preferStudy" id="preferStudy">
-                        <option selected>Select how you prefer to study.</option>
+                    <select class="form-select" name="preferStudy" id="preferStudy" required>
+                        <option selected disabled>Select how you prefer to study.</option>
                         <option value="1">With people</option>
                         <option value="2">In private</option>
                         <option value="3">With noise</option>
@@ -532,8 +532,8 @@
 
                 <div class="form-group">
                     <label for="bedtime">When do you typically go to bed?</label>
-                    <select class="form-select" name="bedtime" id="bedtime">
-                        <option selected>Select when you typically go to bed.</option>
+                    <select class="form-select" name="bedtime" id="bedtime" required>
+                        <option selected disabled>Select when you typically go to bed.</option>
                         <option value="1">Before 9. PM</option>
                         <option value="2">Before 12. AM</option>
                         <option value="3">After 12. AM</option>
@@ -542,8 +542,8 @@
 
                 <div class="form-group">
                     <label for="roommateGender">What gender roommate would you prefer?</label>
-                    <select class="form-select" name="roommateGender" id="roommateGender">
-                        <option selected>Select preferred gender.</option>
+                    <select class="form-select" name="roommateGender" id="roommateGender" required>
+                        <option selected disabled>Select preferred gender.</option>
                         <option value="1">Male</option>
                         <option value="2">Female</option>
                         <option value="3">Does not matter</option>
@@ -568,8 +568,8 @@
                 <h3 class="step-title">Dormitory Roommate 2/2</h3>
                 <div class="form-group">
                     <label for="preferredAgeRange">What age range do you prefer your roommate to be?</label>
-                    <select class="form-select" name="preferredAgeRange" id="preferredAgeRange">
-                        <option selected>Select age range.</option>
+                    <select class="form-select" name="preferredAgeRange" id="preferredAgeRange" required>
+                        <option selected disabled>Select age range.</option>
                         <option value="1">18-21</option>
                         <option value="2">22-25</option>
                         <option value="3">26-30+</option>
@@ -618,8 +618,8 @@
                 <h3 class="step-title">Information about the dormitory</h3>
                 <div class="form-group">
                     <label for="budget">Budget</label>
-                    <select class="form-select" name="budget" id="budget">
-                        <option selected>Select your maximum budget.</option>
+                    <select class="form-select" name="budget" id="budget" required>
+                        <option selected disabled>Select your maximum budget.</option>
                         <option value="1"><2000 DKK</option>
                         <option value="2"><3000 DKK</option>
                         <option value="3"><4000 DKK</option>
@@ -662,8 +662,8 @@
                 <h3 class="step-title">Choose which question you think is most important:</h3>
                 <div class="form-group">
                     <label for="Q1">#1 Question</label>
-                    <select class="form-select" name="Q1" id="Q1">
-                        <option selected>Select your question.</option>
+                    <select class="form-select" name="Q1" id="Q1" required>
+                        <option selected disabled>Select your question.</option>
                         <option value="planVisitorsRoommate">How often would you prefer your roommate having visitors over?</option>
                         <option value="preferStudy">How do you prefer to study?</option>
                         <option value="bedtime">When do you typically go to bed?</option>
@@ -677,8 +677,8 @@
                 </div>
                 <div class="form-group">
                     <label for="Q2">#2 Question</label>
-                    <select class="form-select" name="Q2" id="Q2">
-                        <option selected>Select your question.</option>
+                    <select class="form-select" name="Q2" id="Q2" required>
+                        <option selected disabled>Select your question.</option>
                         <option value="planVisitorsRoommate">How often would you prefer your roommate having visitors over?</option>
                         <option value="preferStudy">How do you prefer to study?</option>
                         <option value="bedtime">When do you typically go to bed?</option>
@@ -692,8 +692,8 @@
                 </div>
                 <div class="form-group">
                     <label for="Q3">#3 Question</label>
-                    <select class="form-select" name="Q3" id="Q3">
-                        <option selected>Select your question.</option>
+                    <select class="form-select" name="Q3" id="Q3" required>
+                        <option selected disabled>Select your question.</option>
                         <option value="planVisitorsRoommate">How often would you prefer your roommate having visitors over?</option>
                         <option value="preferStudy">How do you prefer to study?</option>
                         <option value="bedtime">When do you typically go to bed?</option>
@@ -707,8 +707,8 @@
                 </div>
                 <div class="form-group">
                     <label for="Q4">#4 Question</label>
-                    <select class="form-select" name="Q4" id="Q4">
-                        <option selected>Select your question.</option>
+                    <select class="form-select" name="Q4" id="Q4" required>
+                        <option selected disabled>Select your question.</option>
                         <option value="planVisitorsRoommate">How often would you prefer your roommate having visitors over?</option>
                         <option value="preferStudy">How do you prefer to study?</option>
                         <option value="bedtime">When do you typically go to bed?</option>
@@ -722,8 +722,8 @@
                 </div>
                 <div class="form-group">
                     <label for="Q5">#5 Question</label>
-                    <select class="form-select" name="Q5" id="Q5">
-                        <option selected>Select your question.</option>
+                    <select class="form-select" name="Q5" id="Q5" required>
+                        <option selected disabled>Select your question.</option>
                         <option value="planVisitorsRoommate">How often would you prefer your roommate having visitors over?</option>
                         <option value="preferStudy">How do you prefer to study?</option>
                         <option value="bedtime">When do you typically go to bed?</option>
