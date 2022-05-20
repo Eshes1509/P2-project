@@ -35,6 +35,10 @@ router.get("/contact", function (request, response) {
     response.render("pages/contact");
 });
 
+router.get("/guide", function (request, response) {
+    return response.render("pages/guide.ejs");
+});
+
 router.post("/results", async function (request, response) {
     await client.connect();
 
@@ -43,7 +47,8 @@ router.post("/results", async function (request, response) {
 
     let resident = await db.collection("residents").find({}).toArray();
 
-    let fitness = compatability(request, resident);
+    let weight = await weighting(request);
+    let fitness = compatability(request, resident, weight);
 
     client.close();
 
@@ -51,10 +56,6 @@ router.post("/results", async function (request, response) {
         applicant_name: request.body.firstName,
         resident: fitness,
     });
-});
-
-router.get("/guide", function (request, response) {
-    return response.render("pages/guide.ejs");
 });
 
 function x1(q9x, q10y) {
@@ -365,38 +366,39 @@ function x15(q18y, q7y, q7x) {
     return x15;
 }
 
-let weightings = [
+/* let weightings = [
     0.1, 0.0285, 0.1, 0.1, 0.1, 0.1, 0.0285, 0.1, 0.1, 0.0285, 0.1, 0.0285,
     0.0285, 0.0285, 0.0285,
-];
+]; */
 
 function weighting(request) {
     let weight = [];
-    let x = [
-        planVisitorsRoommate,
-        preferStudy,
-        bedtime,
-        roommateGender,
-        roommateLanguage,
-        preferredAgeRange,
-        btnradio4,
-        roommateMajor,
-        roommateSemester,
+    const x = [
+        "planVisitorsRoommate",
+        "preferStudy",
+        "bedtime",
+        "roommateGender",
+        "roommateLanguage",
+        "preferredAgeRange",
+        "btnradio4",
+        "roommateMajor",
+        "roommateSemester",
     ];
-    let vigtigID = [];
-
-    vigtigID[0] = request.body.Q1;
-    vigtigID[1] = request.body.Q2;
-    vigtigID[2] = request.body.Q3;
-    vigtigID[3] = request.body.Q4;
-    vigtigID[4] = request.body.Q5;
+    let vigtigID = [
+        request.body.Q1,
+        request.body.Q2,
+        request.body.Q3,
+        request.body.Q4,
+        request.body.Q5,
+    ];
 
     for (let i = 0; i < 15; i++) {
         for (let j = 0; j < 5; j++) {
             if (vigtigID[j] === x[i]) {
-                weight[i] = 10;
+                weight[i] = 0.1;
+                break;
             } else {
-                weight[i] = 5;
+                weight[i] = 0.05;
             }
         }
     }
@@ -404,9 +406,11 @@ function weighting(request) {
     for (let i = 0; i < 15; i++) {
         console.log(weight[i]);
     }
+
+    return weight;
 }
 
-function compatability(request, resident) {
+function compatability(request, resident, weight) {
     let fitness = [];
     for (let i = 0; i < resident.length; i++) {
         let array = [];
@@ -475,7 +479,7 @@ function compatability(request, resident) {
         array[14] = X15;
 
         for (let j = 0; j < 15; j++) {
-            sum += array[j] * weightings[j];
+            sum += array[j] * weight[j];
         }
 
         let fit = {
