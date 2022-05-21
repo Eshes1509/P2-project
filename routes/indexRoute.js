@@ -694,7 +694,7 @@ function compatability(request, resident, weight) {
             name: resident[i].firstName + " " + resident[i].lastName,
             aalborgSection: resident[i].aalborgSection,
             budget: resident[i].budget,
-            /* handicapFriendly: btnradio7, */
+            handicapFriendly: resident[i].btnradio7,
         };
         fitness.push(fit);
     }

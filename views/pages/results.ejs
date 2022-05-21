@@ -22,12 +22,10 @@
             <%= error.msg %>
             <button
                 type="button"
-                class="close"
-                data-dismiss="alert"
+                class="btn-close"
+                data-bs-dismiss="alert"
                 aria-label="Close"
-            >
-                <span aria-hidden="true">×</span>
-            </button>
+            ></button>
         </div>
         <% }) %> <% } %>
 
@@ -44,9 +42,24 @@
                         Compatibility %: <%= resident[0]?.fitness %><br />
                         Name: <%= resident[0]?.name %> <br />
                         Email: <%= resident[0]?.email %><br />
-                        Handicap friendly: <%# (if ) %> <br />
-                        Price: <%= resident[0]?.budget %> <br />
-                        Location: <%= resident[0]?.aalborgSection %> <br />
+                        Handicap friendly: <% if (resident[0]?.handicapFriendly
+                        === "handicapFriendlyNo") { %> No <% } else if
+                        (resident[0]?.handicapFriendly ===
+                        "handicapFriendlyYes") { %> Yes <% } %><br />
+                        Price: <% if (resident[0]?.budget === "1") { %> <2000
+                        DKK <% } else if (resident[0]?.budget === "2") { %>
+                        <3000 DKK <% } else if (resident[0]?.budget === "3") {
+                        %> <4000 DKK <% } else if (resident[0]?.budget === "4")
+                        { %> <5000 DKK <% } else if (resident[0]?.budget ===
+                        "5") { %> <6000 DKK <% } %> <br />
+                        Location: <% if (resident[0]?.aalborgSection ===
+                        "sectionAalborgC") { %> 9000 - Aalborg Central <% } else
+                        if (resident[0]?.aalborgSection === "sectionAalborgSW")
+                        { %> 9200 - Aalborg South West <% } else if
+                        (resident[0]?.aalborgSection === "sectionAalborgSE") {
+                        %> 9210 - Aalborg South East <% } else if
+                        (resident[0]?.aalborgSection === "sectionAalborgSW") {
+                        %> 9220 - Aalborg East <% } %>
                     </p>
                 </div>
             </div>
@@ -62,9 +75,24 @@
                         Compatibility %: <%= resident[1]?.fitness %><br />
                         Name: <%= resident[1]?.name %> <br />
                         Email: <%= resident[1]?.email %><br />
-                        Handicap friendly: <%# (if ) %> <br />
-                        Price: <%= resident[1]?.budget %> <br />
-                        Location: <%= resident[1]?.aalborgSection %> <br />
+                        Handicap friendly: <% if (resident[1]?.handicapFriendly
+                        === "handicapFriendlyNo") { %> No <% } else if
+                        (resident[1]?.handicapFriendly ===
+                        "handicapFriendlyYes") { %> Yes <% } %><br />
+                        Price: <% if (resident[1]?.budget === "1") { %> <2000
+                        DKK <% } else if (resident[1]?.budget === "2") { %>
+                        <3000 DKK <% } else if (resident[1]?.budget === "3") {
+                        %> <4000 DKK <% } else if (resident[1]?.budget === "4")
+                        { %> <5000 DKK <% } else if (resident[1]?.budget ===
+                        "5") { %> <6000 DKK <% } %> <br />
+                        Location: <% if (resident[1]?.aalborgSection ===
+                        "sectionAalborgC") { %> 9000 - Aalborg Central <% } else
+                        if (resident[1]?.aalborgSection === "sectionAalborgSW")
+                        { %> 9200 - Aalborg South West <% } else if
+                        (resident[1]?.aalborgSection === "sectionAalborgSE") {
+                        %> 9210 - Aalborg South East <% } else if
+                        (resident[1]?.aalborgSection === "sectionAalborgSW") {
+                        %> 9220 - Aalborg East <% } %>
                     </p>
                 </div>
             </div>
@@ -80,9 +108,24 @@
                         Compatibility %: <%= resident[2]?.fitness %><br />
                         Name: <%= resident[2]?.name %> <br />
                         Email: <%= resident[2]?.email %><br />
-                        Handicap friendly: <%# (if ) %> <br />
-                        Price: <%= resident[2]?.budget %> <br />
-                        Location: <%= resident[2]?.aalborgSection %> <br />
+                        Handicap friendly: <% if (resident[2]?.handicapFriendly
+                        === "handicapFriendlyNo") { %> No <% } else if
+                        (resident[2]?.handicapFriendly ===
+                        "handicapFriendlyYes") { %> Yes <% } %><br />
+                        Price: <% if (resident[2]?.budget === "1") { %> <2000
+                        DKK <% } else if (resident[2]?.budget === "2") { %>
+                        <3000 DKK <% } else if (resident[2]?.budget === "3") {
+                        %> <4000 DKK <% } else if (resident[2]?.budget === "4")
+                        { %> <5000 DKK <% } else if (resident[2]?.budget ===
+                        "5") { %> <6000 DKK <% } %> <br />
+                        Location: <% if (resident[2]?.aalborgSection ===
+                        "sectionAalborgC") { %> 9000 - Aalborg Central <% } else
+                        if (resident[2]?.aalborgSection === "sectionAalborgSW")
+                        { %> 9200 - Aalborg South West <% } else if
+                        (resident[2]?.aalborgSection === "sectionAalborgSE") {
+                        %> 9210 - Aalborg South East <% } else if
+                        (resident[2]?.aalborgSection === "sectionAalborgSW") {
+                        %> 9220 - Aalborg East <% } %>
                     </p>
                 </div>
             </div>
