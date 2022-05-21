@@ -25,37 +25,79 @@ const uri =
 
 const client = new MongoClient(uri);
 
+// Render the landing page.
 router.get("/", function (request, response) {
     response.render("pages/index");
 });
 
+// Render the contact us page.
 router.get("/contact", function (request, response) {
     response.render("pages/contact");
 });
 
+// Render the guide page.
 router.get("/guide", function (request, response) {
     return response.render("pages/guide.ejs");
 });
 
-router.post("/results", async function (request, response) {
-    await client.connect();
+// Render the results page.
+router.post(
+    "/results",
+    [
+        check("firstName", "Enter first name").isString().notEmpty(),
+        check("lastName", "Enter last name").isString().notEmpty(),
+        check("gender", "Choose a gender").equals("1", "2"),
+        check("email", "Email is not valid").isEmail().normalizeEmail(),
+        check("age", "Choose an age").equals("1", "2", "3"),
+        check("major", "Choose a major")
+            .isString()
+            .notEmpty()
+            .isLength({ max: 3 }),
+        check("semester", "Choose a semester between 1-10").equals(
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+        ),
+        check(),
+    ],
+    async function (request, response) {
+        const errors = validationResult(request);
+        let alert = [];
+        if (!errors.isEmpty()) {
+            alert = errors.array();
+        }
 
-    const db = client.db("myFirstDatabase");
-    await db.collection("residents").insertOne(request.body);
+        await client.connect();
 
-    let resident = await db.collection("residents").find({}).toArray();
+        const db = client.db("myFirstDatabase");
+        if (errors.isEmpty()) {
+            await db.collection("residents").insertOne(request.body);
+            console.log("Inserted applicant");
+        }
 
-    let weight = await weighting(request);
-    let fitness = compatability(request, resident, weight);
+        let resident = await db.collection("residents").find({}).toArray();
 
-    client.close();
+        let weight = await weighting(request);
+        let fitness = compatability(request, resident, weight);
 
-    response.render("pages/results", {
-        applicant_name: request.body.firstName,
-        resident: fitness,
-    });
-});
+        client.close();
 
+        response.render("pages/results", {
+            applicant_name: request.body.firstName,
+            resident: fitness,
+            alert,
+        });
+    }
+);
+
+// Calculate the compatability from the X_x's.
 function x1(q9x, q10y) {
     let delta, x1;
 
@@ -403,6 +445,7 @@ function weighting(request) {
     return weight;
 }
 
+// Calculated the compatability between the resident and the applicant.
 function compatability(request, resident, weight) {
     let fitness = [];
     for (let i = 0; i < resident.length; i++) {
@@ -512,4 +555,5 @@ function compatability(request, resident, weight) {
     return fitness;
 }
 
+// Exporting the routes to the app.js file.
 module.exports = router;
