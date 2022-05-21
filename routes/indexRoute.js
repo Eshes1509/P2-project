@@ -65,6 +65,25 @@ router.post(
             "9",
             "10"
         ),
+        check("roommateLanguage", "Choose a nationality")
+            .isString()
+            .notEmpty()
+            .isLength({ max: 2 }),
+        check(
+            "planVisitorsRoommate",
+            "Choose how often you prefer your roommate to have visitors over"
+        ).equals("1", "2", "3", "4", "5"),
+        check(
+            "planVisitors",
+            "Choose how often you prefer to have visitors over"
+        ).equals("1", "2", "3", "4", "5"),
+        check("preferStudy", "Choose how you prefer to study").equals(
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ),
         check(),
     ],
     async function (request, response) {
