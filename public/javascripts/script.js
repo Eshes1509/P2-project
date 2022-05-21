@@ -55,5 +55,3 @@ function showCurrentStep() {
         step.classList.toggle("active", index === currentStep);
     });
 }
-
-/* Whatever else(Ændre til hvad javascripten herunder er til) */
