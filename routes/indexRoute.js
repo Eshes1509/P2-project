@@ -48,23 +48,15 @@ router.post(
         check("lastName", "Enter last name").isString().notEmpty(),
         check("gender", "Choose a gender").equals("1", "2"),
         check("email", "Email is not valid").isEmail().normalizeEmail(),
-        check("age", "Choose an age").equals("1", "2", "3"),
+        check("age", "Choose an age").isIn(["1", "2", "3"]).exists().isString(),
         check("major", "Choose a major")
             .isString()
             .notEmpty()
             .isLength({ max: 3 }),
-        check("semester", "Choose a semester between 1-10").equals(
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"
-        ),
+        check("semester", "Choose a semester between 1-10")
+            .isIn(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
+            .exists()
+            .isString(),
         check("roommateLanguage", "Choose a nationality")
             .isString()
             .notEmpty()
@@ -72,41 +64,174 @@ router.post(
         check(
             "planVisitorsRoommate",
             "Choose how often you prefer your roommate to have visitors over"
-        ).equals("1", "2", "3", "4", "5"),
+        )
+            .isIn(["1", "2", "3", "4", "5"])
+            .exists()
+            .isString(),
         check(
             "planVisitors",
             "Choose how often you prefer to have visitors over"
-        ).equals("1", "2", "3", "4", "5"),
-        check("preferStudy", "Choose how you prefer to study").equals(
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
-        ),
-        check(),
+        )
+            .isIn(["1", "2", "3", "4", "5"])
+            .exists()
+            .isString(),
+        check("preferStudy", "Choose how you prefer to study")
+            .exists()
+            .isString()
+            .isIn(["1", "2", "3", "4", "5"]),
+        check("bedtime", "Choose when you typically go to bed")
+            .isIn(["1", "2", "3"])
+            .exists()
+            .isString(),
+        check(
+            "roommateGender",
+            "Choose which gender you prefer your roommate to be"
+        )
+            .isIn(["1", "2", "3"])
+            .exists()
+            .isString(),
+        check(
+            "preferInternational",
+            "Choose if you prefer your roommate to be the same nationality as you"
+        )
+            .isIn(["Yes", "No"])
+            .exists()
+            .isString(),
+        check(
+            "preferredAgeRange",
+            "Choose which age range you prefer your roommate to be"
+        )
+            .isIn(["1", "2", "3", "4"])
+            .exists()
+            .isString(),
+        check("btnradio4", "Choose if you are a smoker")
+            .isIn(["smokerYes", "smokerNo"])
+            .exists()
+            .isString(),
+        check(
+            "roommateMajor",
+            "Choose if you prefer your roommate to have the same major as you"
+        )
+            .isIn(["Yes", "No"])
+            .exists()
+            .isString(),
+        check(
+            "roommateSemester",
+            "Choose if you prefer your roommate to be on the same semester as you"
+        )
+            .isIn(["Yes", "No"])
+            .exists()
+            .isString(),
+        check("budget", "Choose your maximum budget")
+            .isIn(["1", "2", "3", "4", "5"])
+            .exists()
+            .isString(),
+        check(
+            "btnradio7",
+            "Choose if you require the dorm and room to be handicap friendly"
+        )
+            .isIn(["handicapFriendlyYes", "handicapFriendlyNo"])
+            .exists()
+            .isString(),
+        check(
+            "aalborgSection",
+            "Choose which section of Aalborg you with to live in"
+        )
+            .isIn([
+                "sectionAalborgC",
+                "sectionAalborgSW",
+                "sectionAalborgSE",
+                "secionAalborgE",
+            ])
+            .exists()
+            .isString(),
+        check("Q1", "#1 question is not valid")
+            .isIn([
+                "planVisitorsRoommate",
+                "preferStudy",
+                "bedtime",
+                "roommateGender",
+                "roommateLanguage",
+                "preferredAgeRange",
+                "btnradio4",
+                "roommateMajor",
+                "roommateSemester",
+            ])
+            .exists()
+            .isString(),
+        check("Q2", "#2 question is not valid")
+            .isIn([
+                "planVisitorsRoommate",
+                "preferStudy",
+                "bedtime",
+                "roommateGender",
+                "roommateLanguage",
+                "preferredAgeRange",
+                "btnradio4",
+                "roommateMajor",
+                "roommateSemester",
+            ])
+            .exists()
+            .isString(),
+        check("Q3", "#3 question is not valid")
+            .isIn([
+                "planVisitorsRoommate",
+                "preferStudy",
+                "bedtime",
+                "roommateGender",
+                "roommateLanguage",
+                "preferredAgeRange",
+                "btnradio4",
+                "roommateMajor",
+                "roommateSemester",
+            ])
+            .exists()
+            .isString(),
+        check("Q4", "#4 question is not valid")
+            .isIn([
+                "planVisitorsRoommate",
+                "preferStudy",
+                "bedtime",
+                "roommateGender",
+                "roommateLanguage",
+                "preferredAgeRange",
+                "btnradio4",
+                "roommateMajor",
+                "roommateSemester",
+            ])
+            .exists()
+            .isString(),
+        check("Q5", "#5 question is not valid")
+            .isIn([
+                "planVisitorsRoommate",
+                "preferStudy",
+                "bedtime",
+                "roommateGender",
+                "roommateLanguage",
+                "preferredAgeRange",
+                "btnradio4",
+                "roommateMajor",
+                "roommateSemester",
+            ])
+            .exists()
+            .isString(),
     ],
     async function (request, response) {
         const errors = validationResult(request);
-        let alert = [];
-        if (!errors.isEmpty()) {
-            alert = errors.array();
-        }
-
-        await client.connect();
-
         const db = client.db("myFirstDatabase");
+        let alert = await error(errors);
+
         if (errors.isEmpty()) {
+            await client.connect();
             await db.collection("residents").insertOne(request.body);
             console.log("Inserted applicant");
+            let resident = await db.collection("residents").find({}).toArray();
+            let weight = await weighting(request);
+            fitness = compatability(request, resident, weight);
+            client.close();
+        } else {
+            fitness = [];
         }
-
-        let resident = await db.collection("residents").find({}).toArray();
-
-        let weight = await weighting(request);
-        let fitness = compatability(request, resident, weight);
-
-        client.close();
 
         response.render("pages/results", {
             applicant_name: request.body.firstName,
@@ -115,6 +240,15 @@ router.post(
         });
     }
 );
+
+function error(errors) {
+    let alert = [];
+    if (!errors.isEmpty()) {
+        alert = errors.array();
+        console.log(alert);
+    }
+    return alert;
+}
 
 // Calculate the compatability from the X_x's.
 function x1(q9x, q10y) {
