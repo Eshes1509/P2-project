@@ -227,7 +227,7 @@ router.post(
             console.log("Inserted applicant");
             let resident = await db.collection("residents").find({}).toArray();
             let weight = await weighting(request);
-            fitness = compatability(request, resident, weight);
+            fitness = compatibility(request, resident, weight);
             client.close();
         } else {
             fitness = [];
@@ -250,7 +250,7 @@ function error(errors) {
     return alert;
 }
 
-// Calculate the compatability from the X_x's.
+// Calculate the compatibility from the X_x's.
 function x1(q9x, q10y) {
     let delta, x1;
 
@@ -598,8 +598,8 @@ function weighting(request) {
     return weight;
 }
 
-// Calculated the compatability between the resident and the applicant.
-function compatability(request, resident, weight) {
+// Calculated the compatibility between the resident and the applicant.
+function compatibility(request, resident, weight) {
     let fitness = [];
     for (let i = 0; i < resident.length; i++) {
         let array = [];
