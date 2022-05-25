@@ -697,10 +697,6 @@ function compatibility(request, resident, weight) {
 
     fitness.sort((a, b) => (a.fitness < b.fitness ? 1 : -1));
 
-    for (let i = 0; i < 3; i++) {
-        console.log(fitness[i]);
-    }
-
     return fitness;
 }
 
