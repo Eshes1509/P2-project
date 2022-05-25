@@ -572,7 +572,7 @@ function weighting(request) {
         "roommateMajor",
         "roommateSemester",
     ];
-    let vigtigID = [
+    let answerID = [
         request.body.Q1,
         request.body.Q2,
         request.body.Q3,
@@ -582,7 +582,7 @@ function weighting(request) {
 
     for (let i = 0; i < 15; i++) {
         for (let j = 0; j < 5; j++) {
-            if (vigtigID[j] === x[i]) {
+            if (answerID[j] === x[i]) {
                 weight[i] = 0.1;
                 break;
             } else {
