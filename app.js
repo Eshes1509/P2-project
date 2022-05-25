@@ -12,9 +12,6 @@ const PORT = process.env.PORT || 5000;
 
 const express = require("express");
 const app = express();
-const server = require("http").Server(app);
-const ejs = require("ejs");
-const MongoClient = require("mongodb").MongoClient;
 const path = require("path");
 const indexRoute = require("./routes/indexRoute");
 
