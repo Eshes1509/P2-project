@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head') %>
+    </head>
+    <body>
+        <!-- Navbar -->
+        <%- include('../partials/navbar') %>
+
+        <h1 class="mt-5 text-center">Contact us</h1>
+        <form
+            id="survey-form"
+            data-multi-step
+            class="multi-step-form"
+            action="mailto:fs-21-sw-2-a218b@student.aau.dk"
+            method="POST"
+            enctype="text/plain"
+        >
+            <div class="mb-5 card-step" data-step active>
+                <div class="form-group">
+                    <label for="firstName" id="firstNameLabel"
+                        >First Name</label
+                    >
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="firstName"
+                        id="firstName"
+                        placeholder="Jens"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName" id="lastNameLabel">Last Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="lastName"
+                        id="lastName"
+                        placeholder="Jensen"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email address</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                        placeholder="name@example.com"
+                    />
+                    <div id="emailHelp" class="form-text">
+                        We'll never share your email with anyone else.
+                    </div>
+                </div>
+                <div class="mb-3 form-group">
+                    <label for="text" class="form-label">Text</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="text"
+                        id="text"
+                        placeholder="Input what you want to contact us about"
+                    />
+                </div>
+                <button type="submit" class="btn btn-success">Send mail</button>
+                <div id="contactHelp" class="form-text">
+                    Once you press "send mail" it will open your default mail
+                    client and you will have to send the mail there. Information
+                    will be prefilled from the form.
+                </div>
+            </div>
+        </form>
+
+        <!-- Footer -->
+        <%- include('../partials/footer') %>
+
+        <!-- JavaScript -->
+        <%- include('../partials/script') %>
+    </body>
+</html>

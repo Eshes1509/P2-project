@@ -1,0 +1,9 @@
+HOW TO RUN THE SERVER:
+1. Change directory to the project folder in your terminal.
+2. In the terminal write "node app.js" to start the server.
+3. In your browser type "localhost:5000".
+4. Feel free to look around on the website and fill out the questionnaire.
+
+IF YOU HAVE TROUBLE WITH THE SERVER:
+1. In the terminal, write "npm install" and it should install the required dependencies.
+2. If nothing works, please send us an email on "fs-21-sw-2-a218b@student.aau.dk" and we will try to help our best.
